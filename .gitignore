@@ -1,0 +1,14 @@
+# Wallpaper effects (imagenes pesadas)
+config/hypr/wallpaper_effects/
+
+# Cache y archivos temporales
+*.log
+*.pid
+*.lock
+**/__pycache__/
+**/.cache/
+
+# Archivos sensibles
+**/.env
+**/secrets*
+**/tokens*

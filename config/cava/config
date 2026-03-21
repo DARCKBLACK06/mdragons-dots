@@ -1,0 +1,21 @@
+[general]
+bars = 100
+bar_width = 2
+bar_spacing = 1
+
+[color]
+gradient = 1
+gradient_count = 2
+gradient_color_1 = '#8B0000'
+gradient_color_2 = '#6A0DAD'
+
+[smoothing]
+noise_reduction = 77
+
+[output]
+method = sdl
+channels = stereo
+sdl_width = 2560
+sdl_height = 200
+sdl_x = 0
+sdl_y = -1
