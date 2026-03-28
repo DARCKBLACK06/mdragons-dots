@@ -2,7 +2,7 @@
 #!/bin/bash
 
 #wallpaper="$HOME/Imágenes/wallpaper/104359432_p0.jpg"
-wallpaper="$HOME/Imágenes/wallpaper/974034.jpg"
+wallpaper="$HOME/Imágenes/wallpaper/wallpaper2.png"
 
 
 case $1 in
@@ -20,14 +20,19 @@ case $1 in
     ;;
 
     pywal)
-        
-        wal -i $wallpaper -n
+       if [ -f ~/.config/i3/scripts/.log-wallpaper ]
+       then
+	   log=`cat ~/.config/i3/scripts/.log-wallpaper`
+	   wal -i $log -n
+   else
+	   wal -i $wallpaper -n
+       fi
 
     ;;
 
     image-edit)
 
-        sakura -e nvim ~/.config/i3/scripts/wallpaper-desktop.sh
+        kitty -e nvim ~/.config/i3/scripts/wallpaper-desktop.sh
 
     ;;
 

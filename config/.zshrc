@@ -52,3 +52,5 @@ bash $HOME/.config/fastfetch/fastfetch-mini.sh | lolcat
 #Export apps
 #
 export PATH="$PATH:$HOME/.spicetify"
+export PATH="$HOME/.local/bin:$PATH"
+

@@ -82,7 +82,7 @@ conky.config = {
 };
 
 conky.text = [[
-${image ~/Imágenes/icon/logoII.png -s 60x60 -f 8640}
+${image ~/.config/i3/scripts/Fedora.png -s 60x60 -f 8640}
 ${color1}${alignc}S Y S T E M    I N F O${color}
 ${color1}${color}
 ${color1}${hr}${color}
