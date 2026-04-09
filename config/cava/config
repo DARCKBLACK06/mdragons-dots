@@ -264,53 +264,24 @@
 
 
 [color]
+gradient = 1
+gradient_color_1 = '#A46655'
+gradient_color_2 = '#F29939'
+gradient_color_3 = '#7E7887'
+gradient_color_4 = '#A8A8AB'
+gradient_color_5 = '#CDBEB2'
+gradient_color_6 = '#BCC3C5'
+gradient_color_7 = '#ffffff'
 
-# Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
-# Or defined by hex code '#xxxxxx' (hex code must be within ''). User defined colors require
-# a terminal that can change color definitions such as Gnome-terminal or rxvt.
-# default is to keep current terminal color
-; background = default
-; foreground = default
-
-# SDL and sdl_glsl only support hex code colors, these are the default:
-; background = '#111111'
-; foreground = '#33ffff'
-
-# Gradient mode, only hex defined colors are supported,
-# background must also be defined in hex or remain commented out. 1 = on, 0 = off.
-# You can define as many as 8 different colors. They range from bottom to top of the screen
-; gradient = 0
-; gradient_color_1 = '#59cc33'
-; gradient_color_2 = '#80cc33'
-; gradient_color_3 = '#a6cc33'
-; gradient_color_4 = '#cccc33'
-; gradient_color_5 = '#cca633'
-; gradient_color_6 = '#cc8033'
-; gradient_color_7 = '#cc5933'
-; gradient_color_8 = '#cc3333'
-
-# Horizontal is only supported on noncurses output.
-# Only one color will be calculated per bar.
-; horizontal_gradient = 0
-; horizontal_gradient_color_1 = '#c45161'
-; horizontal_gradient_color_2 = '#e094a0'
-; horizontal_gradient_color_3 = '#f2b6c0'
-; horizontal_gradient_color_4 = '#f2dde1'
-; horizontal_gradient_color_5 = '#cbc7d8'
-; horizontal_gradient_color_6 = '#8db7d2'
-; horizontal_gradient_color_7 = '#5e62a9'
-; horizontal_gradient_color_8 = '#434279'
-
-# If both vertical and horizontal gradients are enabled, the vertical one will be blended in this direction.
-# Can be 'up', 'down', 'left' or 'right'. 'up' means the vertical gradient will be blended in from
-# bottom to top. I.e. the bottom will only be the horizontal
-# and top will only be the vertical color of the gradient.
-; blend_direction = 'up'
-
-# use theme file instead of defining colors in this file
-# themes are located in $HOME/.config/cava/themes
-; theme = 'none'
-
+[color]
+gradient = 1
+gradient_color_1 = '#A46655'
+gradient_color_2 = '#F29939'
+gradient_color_3 = '#7E7887'
+gradient_color_4 = '#A8A8AB'
+gradient_color_5 = '#CDBEB2'
+gradient_color_6 = '#BCC3C5'
+gradient_color_7 = '#ffffff'
 
 [smoothing]
 

@@ -1,0 +1,2 @@
+#define COLOR ({color6} * GRADIENT)
+
