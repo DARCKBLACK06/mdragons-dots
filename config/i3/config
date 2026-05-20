@@ -37,7 +37,7 @@ for_window [class="Yad"] floating enable, border none
 for_window [class="Zenity"] floating enable, border none
 
 # Polybar launch file .sh
-exec_always --no-startup-id sleep 3 && $HOME/.config/i3/polybar/launch.sh
+exec_always --no-startup-id sleep 3 && $HOME/.config/i3/polybar/cuts/launch.sh
 
 # Conky
 exec --no-startup-id conky -c ~/.config/i3/scripts/info
@@ -103,8 +103,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Brightness (brillo)
-bindsym XF86MonBrightnessUp exec --no-startup-id sh ~/.config/i3/scripts/brightness-brightnessctl.sh up
-bindsym XF86MonBrightnessDown exec --no-startup-id sh ~/.config/i3/scripts/brightness-brightnessctl.sh down
+bindsym $mod+F8 exec --no-startup-id sh ~/.config/i3/scripts/brightness-brightnessctl.sh up
+bindsym $mod+F7 exec --no-startup-id sh ~/.config/i3/scripts/brightness-brightnessctl.sh down
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -136,7 +136,6 @@ bindsym $mod+Shift+Print exec --no-startup-id maim -i $(xdotool getactivewindow)
 #exec nitrogen --restore
 
 # Set wallapaper feh
-exec_always --no-startup-id sh ~/.config/i3/scripts/wallpaper-desktop.sh default
 
 # Open file manager
 bindsym $mod+Shift+Return exec pcmanfm

@@ -7,26 +7,39 @@ wallpaper="$HOME/Imágenes/wallpaper/wallpaper2.png"
 
 case $1 in
 
-    random)
+random)
 
-        aleatory=`find ~/Imágenes/wallpaper -type f | shuf -n 1`
+    aleatory=$(find ~/Imágenes/wallpaper -type f | shuf -n 1)
 
-        cp /dev/null ~/.config/i3/scripts/.log-wallpaper
+    echo "$aleatory" > ~/.config/i3/scripts/.log-wallpaper
 
-        echo $aleatory > ~/.config/i3/scripts/.log-wallpaper
+    feh --bg-fill "$aleatory" --no-fehbg
 
-        feh --bg-fill $aleatory --no-fehbg
+    wal -i "$aleatory" -n
+
+    ~/.cache/wal/colors.sh
+
+    killall -q polybar
+    sleep 2
+    ~/.config/i3/polybar/cuts/launch.sh &
 
     ;;
 
     pywal)
-       if [ -f ~/.config/i3/scripts/.log-wallpaper ]
-       then
-	   log=`cat ~/.config/i3/scripts/.log-wallpaper`
-	   wal -i $log -n
-   else
-	   wal -i $wallpaper -n
-       fi
+
+    if [ -f ~/.config/i3/scripts/.log-wallpaper ]; then
+        log=$(cat ~/.config/i3/scripts/.log-wallpaper)
+    else
+        log="$wallpaper"
+    fi
+
+    wal -i "$log" -n
+
+    ~/.cache/wal/colors.sh
+
+    killall -q polybar
+    sleep 2
+    ~/.config/i3/polybar/cuts/launch.sh &
 
     ;;
 
@@ -47,25 +60,26 @@ case $1 in
 
     ;;
 
-    default)
+default)
 
-        if [ -f ~/.config/i3/scripts/.log-wallpaper ]
-        then
+    if [ -f ~/.config/i3/scripts/.log-wallpaper ]; then
+        log=$(cat ~/.config/i3/scripts/.log-wallpaper)
+    else
+        log="$wallpaper"
+        echo "$wallpaper" > ~/.config/i3/scripts/.log-wallpaper
+    fi
 
-            log=`cat ~/.config/i3/scripts/.log-wallpaper`
+    feh --bg-fill "$log" --no-fehbg
 
-            feh --bg-fill $log --no-fehbg
+    wal -i "$log" -n
 
-        else
+    ~/.cache/wal/colors.sh
 
-            echo $wallpaper > ~/.config/i3/scripts/.log-wallpaper
+    killall -q polybar
+    sleep 2
+    ~/.config/i3/polybar/cuts/launch.sh &
 
-            feh --bg-fill $wallpaper --no-fehbg
-
-        fi
-
-    ;;
-
+   ;;
 
     center)
 

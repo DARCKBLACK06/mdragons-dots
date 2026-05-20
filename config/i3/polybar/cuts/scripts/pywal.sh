@@ -50,6 +50,10 @@ if [[ -f "/usr/bin/wal" ]]; then
 		AC=`printf "%s\n" "$color1"`
 
 		change_color
+	# Aplicar colores a kitty (terminales abiertas y nuevas)
+	if command -v kitty >/dev/null 2>&1; then
+ 	   kitty @ set-colors -a ~/.cache/wal/colors-kitty.conf
+	fi
 	else
 		echo -e "[!] Please enter the path to wallpaper. \n"
 		echo "Usage : ./pywal.sh path/to/image"

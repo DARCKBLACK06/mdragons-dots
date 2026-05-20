@@ -28,8 +28,7 @@ LOG="Install-Logs/install-$(date +%d-%H%M%S).log"
 if [[ $EUID -eq 0 ]]; then
     echo "${ERROR} Este script ${WARN}NO${RESET} debe ejecutarse como root. Saliendo..." | tee -a "$LOG"
     exit 1
-f
-i
+fi
 # Cachear credenciales sudo
 echo "${INFO} Se requieren permisos de administrador..." | tee -a "$LOG"
 sudo -v
