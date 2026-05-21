@@ -2,26 +2,31 @@
 
 STATE_FILE="/tmp/game_mode_state"
 
-# Evitar doble activación
 if [ -f "$STATE_FILE" ]; then
     notify-send "Modo juego ya activo"
     exit 0
 fi
 
-# Marcar estado
 touch "$STATE_FILE"
 
-# Matar procesos visuales
+# Perfil ASUS
+asusctl profile set Performance
+
+# CPU
+sudo cpupower frequency-set -g performance
+
+# PCIe sin ahorro
+echo performance | sudo tee /sys/module/pcie_aspm/parameters/policy > /dev/null
+
+# Pantalla 144Hz
+xrandr --output eDP-1 --mode 1920x1200 --rate 144
+
+# Procesos visuales fuera
 pkill picom
-pkill polybar
-pkill dunst
 pkill conky
 pkill glava
 
-# Fondo negro
-xsetroot -solid black
+# Gamemode daemon (por si acaso)
+gamemoded -r &
 
-# CPU a máximo
-echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
-
-notify-send "🔥 MODO JUEGO ACTIVADO"
+notify-send "Modo juego activado"

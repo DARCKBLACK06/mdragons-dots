@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 
-# Add this script to your wm startup file.
-
 DIR="$HOME/.config/i3/polybar/cuts"
 
-# Terminate already running bar instances
+# Matar instancias anteriores (solo si existen)
 killall -q polybar
 
-# Wait until the processes have been shut down
-if type "xrandr"; then
+# Esperar a que mueran bien
+while pgrep -u $UID -x polybar >/dev/null; do sleep 0.5; done
+
+# Lanzar barras por monitor
+if command -v xrandr >/dev/null; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-	MONITOR=$m polybar -q top -c "$DIR"/config.ini >> /tmp/polybar-top.log 2>&1 &
-	sleep 0.5
-	MONITOR=$m polybar -q bottom -c "$DIR"/config.ini >> /tmp/polybar-bottom.log 2>&1 &  
-   done
+    MONITOR=$m polybar -q top -c "$DIR/config.ini" &
+    MONITOR=$m polybar -q bottom -c "$DIR/config.ini" &
+  done
 else
-    polybar -q top -c "$DIR"/config.ini >> /tmp/polybar-top.log 2>&1 &
-    polybar -q bottom -c "$DIR"/config.ini >> /tmp/polybar-bottom.log 2>&1 &
+  polybar -q top -c "$DIR/config.ini" &
+  polybar -q bottom -c "$DIR/config.ini" &
 fi

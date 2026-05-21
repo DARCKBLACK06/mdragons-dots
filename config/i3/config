@@ -37,13 +37,13 @@ for_window [class="Yad"] floating enable, border none
 for_window [class="Zenity"] floating enable, border none
 
 # Polybar launch file .sh
-exec_always --no-startup-id sleep 3 && $HOME/.config/i3/polybar/cuts/launch.sh
+exec_always --no-startup-id sleep 2 && $HOME/.config/i3/polybar/cuts/launch.sh
 
 # Conky
 exec --no-startup-id conky -c ~/.config/i3/scripts/info
 
 # Usb automount
-#exec --no-startup-id udiskie -Ns &
+exec --no-startup-id udiskie -Ns &
 
 # Flameshot start
 exec --no-startup-id flameshot
@@ -65,7 +65,9 @@ exec --no-startup-id xrandr --output DP-2 --mode 1920x1200 --rate 144
 
 # pwal
 
-exec --no-startup-id ~/.cache/wal/colors.sh
+exec_always --no-startup-id wal -R
+exec_always --no-startup-id feh --bg-fill "$(cat ~/.cache/wal/wal)"
+exec_always --no-startup-id ~/.config/i3/polybar/cuts/launch.sh
 
 # numlockx
 

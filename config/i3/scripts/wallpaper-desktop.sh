@@ -62,16 +62,12 @@ random)
 
 default)
 
-    if [ -f ~/.config/i3/scripts/.log-wallpaper ]; then
-        log=$(cat ~/.config/i3/scripts/.log-wallpaper)
-    else
-        log="$wallpaper"
-        echo "$wallpaper" > ~/.config/i3/scripts/.log-wallpaper
-    fi
+    log="$wallpaper"
+    echo "$wallpaper" > ~/.config/i3/scripts/.log-wallpaper
 
-    feh --bg-fill "$log" --no-fehbg
+    feh --bg-fill "$wallpaper" --no-fehbg
 
-    wal -i "$log" -n
+    wal -i "$wallpaper" -n
 
     ~/.cache/wal/colors.sh
 
@@ -79,8 +75,20 @@ default)
     sleep 2
     ~/.config/i3/polybar/cuts/launch.sh &
 
-   ;;
+;;
 
+last)
+
+    if [ -f ~/.config/i3/scripts/.log-wallpaper ]; then
+        log=$(cat ~/.config/i3/scripts/.log-wallpaper)
+        feh --bg-fill "$log" --no-fehbg
+        wal -i "$log" -n
+    else
+        feh --bg-fill "$wallpaper" --no-fehbg
+        wal -i "$wallpaper" -n
+    fi
+
+;;
     center)
 
         if [ -f ~/.config/i3/scripts/.log-wallpaper ]
