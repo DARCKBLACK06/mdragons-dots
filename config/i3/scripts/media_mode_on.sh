@@ -1,28 +1,29 @@
 #!/bin/bash
 
 STATE_FILE="/tmp/media_mode_state"
+WALL_FILE="/tmp/last_wallpaper"
 
-# Evitar doble activación
 if [ -f "$STATE_FILE" ]; then
     notify-send "Modo multimedia ya activo"
     exit 0
 fi
 
-# Marcar estado
 touch "$STATE_FILE"
 
-# Matar procesos visuales
+# Guardar SOLO la ruta real
+feh --bg-get | sed -E "s/.*'(.*)'.*/\1/" > "$WALL_FILE"
+
+# fallback si falla
+if [ ! -s "$WALL_FILE" ]; then
+    cat ~/.cache/wal/wal 2>/dev/null > "$WALL_FILE"
+fi
+
+# matar efectos pesados
 pkill picom
-#pkill polybar
-#pkill dunst
 pkill conky
-#pkill glava
+pkill glava
 
-# Fondo negro
-#xsetroot -solid black
-
-# CPU a máximo
-#echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+# modo silencioso ASUS
 asusctl profile set Quiet
 
-notify-send "MODO MEDIA ACTIVADO"                                     
+notify-send "MODO MEDIA ACTIVADO"

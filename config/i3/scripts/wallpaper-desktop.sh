@@ -18,6 +18,7 @@ random)
     wal -i "$aleatory" -n
 
     ~/.cache/wal/colors.sh
+    bash ~/.config/i3/scripts/apply-wal-cava.sh &
 
     killall -q polybar
     sleep 2
@@ -27,15 +28,19 @@ random)
 
     pywal)
 
-    if [ -f ~/.config/i3/scripts/.log-wallpaper ]; then
+   if [ -f ~/.cache/wal/wal ]; then
+        log=$(cat ~/.cache/wal/wal)
+    elif [ -f ~/.config/i3/scripts/.log-wallpaper ]; then
         log=$(cat ~/.config/i3/scripts/.log-wallpaper)
     else
         log="$wallpaper"
     fi
+    echo "$log" > ~/.config/i3/scripts/.log-wallpaper
 
     wal -i "$log" -n
 
     ~/.cache/wal/colors.sh
+    bash ~/.config/i3/scripts/apply-wal-cava.sh &
 
     killall -q polybar
     sleep 2
@@ -70,6 +75,7 @@ default)
     wal -i "$wallpaper" -n
 
     ~/.cache/wal/colors.sh
+    bash ~/.config/i3/scripts/apply-wal-cava.sh &
 
     killall -q polybar
     sleep 2

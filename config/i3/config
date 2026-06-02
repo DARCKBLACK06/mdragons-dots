@@ -54,6 +54,11 @@ exec --no-startup-id glava -d &
 # Dunst start
 exec --no-startup-id dunst
 
+# Steam 
+
+exec --no-startup-id steam -silent
+for_window [class="Steam" title="^Steam$"] move scratchpad
+
 # Game mode
 
 bindsym $mod+Shift+g exec --no-startup-id ~/.config/i3/scripts/game_mode_on.sh
@@ -75,6 +80,11 @@ exec --no-startup-id numlockx on
 
 # betterlock time lock
 
+# Minecraft
+
+exec --no-startup-id eval $(gnome-keyring-daemon --start --components=secrets,ssh)
+exec --no-startup-id export SSH_AUTH_SOCK
+
 bindsym $mod+XF86Assistant exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock
 #exec --no-startup-id xss-lock -- ~/.config/i3/scripts/i3exit.sh lock &
 #exec --no-startuo-id xset s 10
@@ -95,7 +105,7 @@ bindsym $mod+XF86Assistant exec --no-startup-id ~/.config/i3/scripts/i3exit.sh l
 exec --no-startup-id nm-applet
 
 # Volumen incon applet
-exec --no-startup-id volumeicon -d hw:0
+#exec --no-startup-id volumeicon -d hw:0
 
 # Use pactl to adjust volume in PulseAudio.
 #set $refresh_i3status killall -SIGUSR1 i3status
@@ -356,6 +366,7 @@ bindsym $mod+r mode "resize"
 
 #}
 
+
 #Theme name : Pandora Xdn
 
 # Window color settings
@@ -367,6 +378,7 @@ client.placeholder      #716D6D #F2D0A7 #FFFFFF #F2D0A7
 client.urgent           #716D6D #A66D6D #FFFFFF #A66D6D
 
 client.background       #211C40
+
 
 #Press windows + x - check toolbar for next choices
 bindsym $mod+X mode "$mode_system"
@@ -401,4 +413,6 @@ mode "$mode_wallpaper" {
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
+
 }
+
