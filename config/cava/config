@@ -6,7 +6,7 @@
 [general]
 
 # Auto reload config if the configuration file has changed. 1 = on, 0 = off.
-; live-config = 0
+live-config = 
 
 # Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
 ; mode = normal
@@ -160,7 +160,7 @@
 # 'sdl' uses the Simple DirectMedia Layer to render in a graphical context.
 # 'sdl_glsl' uses SDL to create an OpenGL context. Write your own shaders or
 # use one of the predefined ones.
-; method = noncurses
+method = sdl_glsl
 
 # Orientation of the visualization. Can be 'bottom', 'top', 'left', 'right' or
 # 'horizontal'. Default is 'bottom'. 'left and 'right' are only supported on sdl
@@ -222,11 +222,11 @@
 ; synchronized_sync = 0
 
 # Shaders for sdl_glsl, located in $HOME/.config/cava/shaders
-; vertex_shader = pass_through.vert
+ vertex_shader = pass_through.vert
 
 # Default spectrum shader
 # default value: bar_spectrum.frag
-; fragment_shader = bar_spectrum.frag
+ fragment_shader = bar_spectrum.frag
 
 # other styles shaders
 ; fragment_shader = eye_of_phi.frag
@@ -262,26 +262,6 @@
 # show waveform instead of frequency spectrum, 1 = on, 0 = off
 ; waveform = 0
 
-
-[color]
-gradient = 1
-gradient_color_1 = '#A46655'
-gradient_color_2 = '#F29939'
-gradient_color_3 = '#7E7887'
-gradient_color_4 = '#A8A8AB'
-gradient_color_5 = '#CDBEB2'
-gradient_color_6 = '#BCC3C5'
-gradient_color_7 = '#ffffff'
-
-[color]
-gradient = 1
-gradient_color_1 = '#A46655'
-gradient_color_2 = '#F29939'
-gradient_color_3 = '#7E7887'
-gradient_color_4 = '#A8A8AB'
-gradient_color_5 = '#CDBEB2'
-gradient_color_6 = '#BCC3C5'
-gradient_color_7 = '#ffffff'
 
 [smoothing]
 
@@ -319,3 +299,13 @@ gradient_color_7 = '#ffffff'
 ; 3 = 1 # midtone
 ; 4 = 1
 ; 5 = 1 # treble
+
+[color]
+gradient = 1
+gradient_color_1 = '#122B60'
+gradient_color_2 = '#36445F'
+gradient_color_3 = '#595D67'
+gradient_color_4 = '#994C53'
+gradient_color_5 = '#325C8F'
+gradient_color_6 = '#758590'
+gradient_color_7 = '#ffffff'
