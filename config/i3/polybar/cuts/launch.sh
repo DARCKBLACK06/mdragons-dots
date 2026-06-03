@@ -4,9 +4,7 @@ DIR="$HOME/.config/i3/polybar/cuts"
 
 # Matar instancias anteriores (solo si existen)
 killall -q polybar
-
-# Esperar a que mueran bien
-while pgrep -u $UID -x polybar >/dev/null; do sleep 0.5; done
+sleep 1
 
 # Lanzar barras por monitor
 if command -v xrandr >/dev/null; then

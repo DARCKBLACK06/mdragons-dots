@@ -37,7 +37,7 @@ random)
     fi
     echo "$log" > ~/.config/i3/scripts/.log-wallpaper
 
-    wal -i "$log" -n
+    wal -i "$log" -n -q
 
     ~/.cache/wal/colors.sh
     bash ~/.config/i3/scripts/apply-wal-cava.sh &
