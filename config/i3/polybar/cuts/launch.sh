@@ -11,6 +11,7 @@ if command -v xrandr >/dev/null; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
     MONITOR=$m polybar -q top -c "$DIR/config.ini" &
     MONITOR=$m polybar -q bottom -c "$DIR/config.ini" &
+    MONITOR=$m polybar -q tray -c "$DIR/config.ini" &
   done
 else
   polybar -q top -c "$DIR/config.ini" &
