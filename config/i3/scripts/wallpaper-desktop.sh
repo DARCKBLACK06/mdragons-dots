@@ -17,7 +17,12 @@ random)
 
     wal -i "$aleatory" -n
 
+    wal -i "$X" -n
+ 
+    bash ~/.config/i3/scripts/calcular-icon-color.sh 
+
     ~/.cache/wal/colors.sh
+
     bash ~/.config/i3/scripts/apply-wal-cava.sh &
 
     killall -q polybar
@@ -38,8 +43,12 @@ random)
     echo "$log" > ~/.config/i3/scripts/.log-wallpaper
 
     wal -i "$log" -n -q
+   
+     bash ~/.config/i3/scripts/calcular-icon-color.sh
+
 
     ~/.cache/wal/colors.sh
+
     bash ~/.config/i3/scripts/apply-wal-cava.sh &
 
     killall -q polybar
@@ -49,30 +58,25 @@ random)
     ;;
 
     image-edit)
-
         kitty -e nvim ~/.config/i3/scripts/wallpaper-desktop.sh
-
     ;;
 
     delete-log)
-
         if [ -f ~/.config/i3/scripts/.log-wallpaper ]
         then
-
             rm ~/.config/i3/scripts/.log-wallpaper
-
         fi
 
     ;;
 
 default)
-
     log="$wallpaper"
     echo "$wallpaper" > ~/.config/i3/scripts/.log-wallpaper
-
     feh --bg-fill "$wallpaper" --no-fehbg
 
     wal -i "$wallpaper" -n
+
+    bash ~/.config/i3/scripts/calcular-icon-color.sh
 
     ~/.cache/wal/colors.sh
     bash ~/.config/i3/scripts/apply-wal-cava.sh &
@@ -80,7 +84,6 @@ default)
     killall -q polybar
     sleep 2
     ~/.config/i3/polybar/cuts/launch.sh &
-
 ;;
 
 last)
