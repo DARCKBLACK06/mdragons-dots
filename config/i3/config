@@ -80,6 +80,10 @@ exec --no-startup-id numlockx on
 
 # betterlock time lock
 
+# Whatsapp
+
+exec --no-startup-id /opt/brave.com/brave/brave-browser --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm
+
 # Minecraft
 
 exec --no-startup-id eval $(gnome-keyring-daemon --start --components=secrets,ssh)
