@@ -1,0 +1,34 @@
+* {
+    font: "JetBrainsMono Nerd Font 11";
+    bg: #1e1e2e;
+    fg: #cdd6f4;
+    accent: #89b4fa;
+}
+
+window {
+    location: center;
+    anchor: center;
+    width: 700px;
+    border-radius: 12px;
+    background-color: @bg;
+    border: 2px solid @accent;
+}
+
+mainbox {
+    padding: 20px;
+}
+
+listview {
+    enabled: false;
+}
+
+textbox {
+    text-color: @fg;
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+prompt {
+    enabled: true;
+    text-color: @accent;
+}
